@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block body %}
+    <br><br>
+        <div class="col-md-offset-1 col-md-8 panel panel-default">
+        <div class="panel-body" >
+            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        <label class="control-label col-md-3">{{ field.label_tag }}</label>
+                        <div class="col-sm-4">{{ field }}</div>
+                        <div class="col-md-5">
+                             <span class="text-danger small">{{ field.errors }}</span>
+
+                        </div>
+                    </div>
+
+                {% endfor %}
+                {% if c %}
+                    <span class="text-danger small center-block">Invalid entry</span>
+                {% endif %}<br>
+
+               <button class="btn btn-success col-md-offset-4 " type="submit">SUBMIT</button>
+                 <a class="btn btn-success col-md-offset-1" href={% url 'social:begin' 'google-oauth2' %}>
+                    login using Google</a>
+                {% if error %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endif %}
+            </form>
+
+
+        </div>
+    </div>
+
+{% endblock %}

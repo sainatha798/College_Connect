@@ -1,0 +1,16 @@
+{% extends 'baselogin.html' %}
+{% load i18n %}
+{% block body %}
+    {% load static %}
+    {% include 'postfeed/verticalnav.html' %}
+    <div class="panel panel-default panel-primary col-md-offset-0 col-md-6"  >
+
+            <div class="panel-body"><div class="row">
+                <div class="col-md-6" id="content">
+                    <p class="text-info">{% trans 'A Portal where you can share your ideas , stay updated with the happenings in the campus.' %}</p>
+                    <br><br><br><br><br><p class="text-info">{% trans 'Get in touch with your college mates , connect and exchange relevant information' %}</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'connect.jpg' %}" class="img-responsive" width="300px">
+                </div></div></div></div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'baselogin.html' %}
+{% block body %}
+    {% include 'messaging/verticalnav.html' %}
+    <div class=" col-md-offset-1 col-md-8 panel panel-default panel-primary">
+        <div class="panel-body panel-primary">
+        {% if count %}
+    <div class="table table-responsive">
+                <table class="table table-bordered">
+                <tr class="active"><th class="col-md-1 text-info">Sender</th><th class="col-md-offset-2 col-md-3 text-info">Subject</th> </tr>
+            {%  for x in messages %}
+
+
+            {% if x.is_read %}
+                <tr class="active"><td class="col-md-1"><a href={% url 'messaging:msg' x.pk %}>{{ x.sender.username }}</a></td><td class="col-md-offset-2 col-md-3"><a href={% url 'messaging:msg' x.pk %}>{{ x.mail_sub }}</a></td> </tr>
+                {% else %}
+<tr class=""><td class="col-md-1"><a href={% url 'messaging:msg' x.pk %}>{{ x.sender.username }}</a></td><td class="col-md-offset-2 col-md-3"><a href={% url 'messaging:msg' x.pk %}>{{ x.mail_sub }}</a></td> </tr>
+            {% endif %}
+
+                {% endfor %}
+        </table>
+        </div>
+            </div></div>
+        {% else %}
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <span class="text-danger text-center">You dont have any mails</span>
+        </div>
+    </div>
+    </div>
+    {% endif %}
+{%  endblock %}

@@ -1,0 +1,17 @@
+{% extends 'baselogin.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{%  block body %}
+    {% include 'messaging/verticalnav.html' %}
+    <div class="panel panel-default panel-primary col-md-offset-1 col-md-6"  >
+
+            <div class="panel-body"><div class="row">
+                <div class="col-md-6" id="content">
+                    <p class="text-info">{% trans 'Exchange mails with registered users with their username.' %}</p>
+                    <br><br><br><br><br><p class="text-info">{% trans 'Your messages are secure with use.Messages are encrypted with AES.' %}</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'mail.jpg' %}" class="img-responsive" width="300px">
+                </div></div></div></div>
+
+{% endblock %}

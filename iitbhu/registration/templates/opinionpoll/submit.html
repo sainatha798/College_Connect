@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+ <div class="col-md-offset-1 col-md-6 panel panel-default">
+        <div class="panel-body">
+            <form class="form-horizontal" action={% url 'opinionpoll:submit' vote_id %} method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        <label class="control-label col-md-5">{{ field.label_tag }}</label>
+                        <div class="col-md-5">{{ field }}</div>
+                        <div class="col-md-3">
+                            <span class="text-danger small"> {{ field.errors }}</span></div>
+                    </div>
+
+                {% endfor %}
+                <button  class="btn btn-success col-md-offset-4" id="submit" type="submit" value='ok'>submit</button>
+
+        </div>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'baselogin.html' %}
+{% load staticfiles %}
+{% block body %}
+    {% include 'opinionpoll/verticalnav.html' %}
+    <div class=" col-md-5  panel-group " style="height: 100%;overflow: scroll;" xmlns="http://www.w3.org/1999/html"
+         xmlns="http://www.w3.org/1999/html">
+        {%  for x in ques%}
+            <div class=" panel panel-primary " style="">
+        <div class="panel-body ">
+            <div class="row col-md-offset-2 text-left">{{ x.poll_question }}</div>
+     {% if c %}<br>
+            <a class="col-md-offset-2 btn btn-default" href={% url 'opinionpoll:viewpost' x.id %} >View </a>
+        {% else %}
+            <br>
+            <a class="col-md-offset-2 btn btn-default" href={% url 'opinionpoll:submit' x.id %} >Vote </a>
+        {% endif %}
+
+        </div></div>
+            {% endfor %}
+
+
+{%  endblock %}

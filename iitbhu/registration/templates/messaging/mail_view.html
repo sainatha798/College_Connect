@@ -1,0 +1,28 @@
+{% extends 'baselogin.html' %}
+{% load staticfiles %}
+{% block body %}
+    {% include 'messaging/verticalnav.html' %}
+    <div class="row col-md-offset-1 col-md-5 panel panel-group">
+        <div class="panel panel-primary  row col-md-12">
+            <div class="col-md-1 text-primary ">Subject:</div><div class="col-md-offset-1 col-md-3 "> {{ msg.mail_sub }}</div></div>
+       <div class="panel panel-primary  row col-md-12">
+       <div class="col-md-1 text-primary ">Message:</div><div class="col-md-offset-1 col-md-10 "> {{ text }}</div></div>
+        <div class="panel panel-primary  row col-md-12">
+            <div class="col-md-1 text-primary ">Sender:</div><div class="col-md-offset-1 col-md-3 "> {{ msg.sender.username }}</div></div>
+        <div class="row"><br> </div>
+    <div class="row"><br>
+    {%  if msg.file %}
+     <div class="col-md-offset-1 col-md-3">
+    <a href='#' class="btn btn-primary"><span class="glyphicon-download">Attachments</span> </a>
+    {% endif %}</div>
+    {% if msg.sender_trash or msg.receiver_trash %}
+            <div class="col-md-offset-1 col-md-3">
+
+                <a class= "btn btn-primary" href={% url 'messaging:undo' msg.pk %}  > <span class="">Undo</span></a></div>
+    {% endif %}
+    <div class="col-md-offset-1 col-md-3">
+
+        <a class= "btn btn-primary" href={% url 'messaging:delete' msg.pk %} > <span class="">Delete</span></a>
+
+    </div></div></div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+    Hii {{ user.first_name }},<br>
+    Congratulations for registering on IITBHU CONNECT.<br>
+    Your username is {{ user.username }}<br>
+    Please Click the below link to activate your account on IITBHU Connect.<br>
+{% endautoescape %}
+    http://{{ domain }}{% url 'registration:activate' uidb64 token %}<br>
+<br><br>
+{% autoescape off %}
+
+<button id="click here" name="Click Here"><a href={{ domaiin }}{% url 'registration:activate' uidb64 token %}></a></button>
+{% endautoescape %}

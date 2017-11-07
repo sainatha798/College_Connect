@@ -1,0 +1,22 @@
+{% extends 'baselogin.html' %}
+{% block body %}
+    {% include 'opinionpoll/verticalnav.html' %}
+
+    <div class=" col-md-offset-0 col-md-8 panel panel-default panel-primary">
+        <div class="panel-body panel-primary">
+
+    <div class="table table-responsive">
+                <table class="table table-bordered">
+                <tr class="active"><th class="col-md-1 text-info">Choice</th><th class="col-md-offset-2 col-md-3 text-info">Poll Count</th> </tr>
+                   {% for x in choice %}
+                    <tr class=""><td class="col-md-1">{{ x.poll_choice }}</td>
+                        <td class="col-md-offset-2 col-md-3">{{ x.poll_count }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+        </div>
+            </div></div>
+
+
+    }
+{%  endblock %}

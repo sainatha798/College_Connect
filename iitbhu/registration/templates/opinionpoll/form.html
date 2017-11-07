@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<form action={% url 'opinionpoll:polled' %} method="post">
+    {% csrf_token %}
+    <table>
+    {% for field in form %}
+      <tr><input type="radio" name="choice" id="choice{{ forloop.counter }}" value={{ field.pk }}>
+        <label for="choice{{ forloop.counter }}">{{ field.poll_choice }} and {{ field.pk }}</label></tr><br>
+    {% endfor %}
+       <tr> <input type="submit" value="vote"></tr>
+    </table>
+</form>
+{% endblock %}

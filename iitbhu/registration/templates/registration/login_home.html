@@ -1,0 +1,46 @@
+{% extends 'baselogin.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block body %}
+    <div class="col-md-offset-2">
+        <p><h3 class="col-md-offset-2"><strong>{% trans 'Welcome to IIT BHU Connect.' %}</strong></h3></p>
+        <p><h2 class="col-md-offset-2" style="font-family: 'Book Antiqua';font-weight: 300;">{% trans 'Welcome' %} {{ user.username }}</h2></p>
+
+    </div>
+    <div class="panel panel-default panel-primary col-md-offset-2 col-md-6"  >
+
+            <div class="panel-body"><div class="row">
+                <div class="col-md-6" id="content">
+                    <p class="text-info">{% trans 'A Portal where you can share your ideas , stay updated with the happenings in the campus.' %}</p>
+                    <br><br><br><br><br><p class="text-info">{% trans 'Get in touch with your college mates , connect and exchange relevant information' %}</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'connect.jpg' %}" class="img-responsive" width="300px">
+                </div></div></div></div>
+    <div class="row"></div>
+    <div class="panel panel-default panel-primary col-md-offset-5 col-md-6"  >
+
+            <div class="panel-body"><div class="row">
+                <div class="col-md-6" id="content">
+                    <p class="text-info">{% trans 'Exchange mails with registered users with their username.' %}</p>
+                    <br><br><br><br><br><p class="text-info">{% trans 'Your messages are secure with use.Messages are encrypted with AES.' %}</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'mail.jpg' %}" class="img-responsive" width="300px">
+                </div></div></div></div>
+    <div class="row"></div>
+     <div class="panel panel-default panel-primary col-md-offset-2 col-md-6"  >
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="{% static 'poll.png' %}" class="img-responsive" width="250px">
+                    </div>
+                    <div class="col-md-offset-6" id="content">
+                        <p class="text-success">{%  trans 'Create polls!!Know the mood of the college' %}</p>
+                     <br><br><br><br><br>   <p class="text-success">{% trans 'Participate in polls and contribute in proper decision making!!' %} </p>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+{% endblock %}

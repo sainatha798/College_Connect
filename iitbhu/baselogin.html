@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<html>
+<head>
+
+    <title>IITBHU CONNECT</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width initial-scale=1">
+    <link rel="stylesheet" href="{% static 'registration/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static 'registration/bootstrap.js'%}"></script>
+</head>
+
+<style>
+    #nav
+</style>
+<body background={% static 'image.jpg' %}>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <a href={% url 'index' %} class="navbar-brand">IITBHU Connect</a>
+            </div>
+            <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav  navbar-nav ">
+                <li class=""><a href={% url 'opinionpoll:poll_home' %}>Polls</a></li>
+				<li class=""><a href={% url 'postfeed:news_feed' %}>NewsFeed</a></li>
+                <li class=""><a href={%  url 'postfeed:post_home' %}>Posts</a> </li>
+                <li class=""><a href={% url 'messaging:index' %}>Messaging</a></li>
+                <li><a href={% url 'registration:contact' %}>Contact us</a> </li>
+                <li><a href={% url 'credits' %}>Credits</a> </li>
+            </ul>
+            <ul class="nav  navbar-nav  navbar-right ">
+                <li class=""><a href={% url 'registration:logout' %}><span class="glyphicon glyphicon-log-out">Logout</span> </a></li>
+                <li><a href={% url 'registration:changepassword' %}><span class="glyphicon glyphicon-lock">ChangePassword</span></a> </li>
+                <li><a href={% url 'registration:edit' %}><span class="glyphicon glyphicon-plus"> EditProfile</span></a> </li>
+            </ul>
+
+            </div></div>
+    </nav><br><br><br/><br>
+{% block body %}
+
+{% endblock %}<br><br><br><br>
+
+</body>
+</html>

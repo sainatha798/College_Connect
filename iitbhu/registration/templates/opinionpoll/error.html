@@ -1,0 +1,8 @@
+{% extends 'baselogin.html' %}
+
+{% block body %}
+    {% include 'opinionpoll/verticalnav.html' %}
+    <div class="panel panel-primary col-md-offset-2 col-md-3 panel-default">
+        <span class="text-danger" style="font-weight: 200;font-size: larger">You already voted for this question</span>
+    </div>
+{% endblock %}

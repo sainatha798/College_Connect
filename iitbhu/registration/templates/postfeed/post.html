@@ -1,0 +1,22 @@
+{% extends 'baselogin.html' %}
+{% load staticfiles %}
+{% block body %}
+    {% include 'postfeed/verticalnav.html' %}
+    <div class=" col-md-5  panel-group "  style="max-height: 100%;overflow: scroll;">
+        {%  for x in query %}
+            <div class=" panel panel-primary " style="">
+        <div class="panel-body ">
+            <div class="row col-md-offset-2 text-left">{{ x.text }}</div>
+            {% if x.pic %}
+                <img class="img-responsive" src={{ x.pic.url }} style style="" width="75%" align="center">
+            {% endif %}<br><br>
+            <span class="text-info">---{{ x.user.username }}</span><br>
+            {% for p in x.tag_set.all %}
+
+                <span class="text-info">{{ p.tag }}, </span>
+                {% endfor %}
+        </div>
+            <button href="#" class="col-md-offset-2"> <span class="glyphicon-thumbs-up col-md-offset-2 "></span></button><hr>
+        {% endfor %}
+        </div></div>
+{%  endblock %}

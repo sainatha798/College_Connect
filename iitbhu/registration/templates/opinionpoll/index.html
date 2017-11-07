@@ -1,0 +1,20 @@
+{% extends 'baselogin.html' %}
+{% load static %}
+{% load i18n %}
+{% block body %}
+    {% include 'opinionpoll/verticalnav.html' %}
+
+    <div class="panel panel-default panel-primary col-md-offset-0 col-md-6"  >
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="{% static 'poll.png' %}" class="img-responsive" width="200px">
+                    </div>
+                    <div class="col-md-offset-6" id="content">
+                        <p class="text-success">{% trans 'Create polls!!Know the mood of the college' %}</p>
+                     <br><br><br><br><br>   <p class="text-success">{% trans 'Participate in polls and contribute in proper decision making!!' %} </p>
+                    </div>
+                </div>
+            </div></div>
+
+{% endblock %}

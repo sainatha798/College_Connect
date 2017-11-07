@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body %}<br><br>
+    <div class="panel-default col-md-2">
+        <ul class="list-group">
+            {% for link,name in links %}
+
+                <li class="list-group-item-success"><a href={{ link }}>click here to {{ name }}</a></li>
+            {% endfor %}
+        </ul>
+
+    </div>
+{% endblock %}

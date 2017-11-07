@@ -1,0 +1,22 @@
+{% extends 'baselogin.html' %}
+{% block body %}
+    {% include 'postfeed/verticalnav.html' %}
+    <div class=" col-md-5 panel panel-default" xmlns="http://www.w3.org/1999/html">
+        <div class="panel-body">
+            {% if empty %}
+                <div class="text-center text-danger">You currently dont have any tags</div>
+                <a href={% url 'postfeed:n' %} class="btn btn-primary">Add</a>
+            {% else %}
+                <div class="text-primary text-center">Your current tags are:</div>
+                <div class=" col-md-offset-2 col-md-10 ">
+                {% for tag in set %}
+                    <button class="btn btn-default" >{{ tag.tag }} </button>
+                {% endfor %}<br><br></div>
+                <div class="row col-md-offset-4"> <a href={% url 'postfeed:n' %} class="btn btn-primary text-center">Add</a>
+                <a href={% url 'postfeed:edit'%} class="btn btn-primary text-center">Edit</a></div>
+
+            {% endif %}
+
+        </div>
+    </div>
+{%  endblock %}

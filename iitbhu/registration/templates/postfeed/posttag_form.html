@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="col-md-offset-1 col-md-6 panel panel-default">
+        <div class="panel-body">
+
+            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ tags.management_form }}
+                {% for form in tags.forms %}
+                <div class="form-horizontal">
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label class="control-label col-md-3">{{ field.label_tag }}</label>
+                            <div class="col-sm-6">{{ field }}</div>
+                            <div class="col-md-2">
+                                 <span class="text-danger small">{{ field.errors }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <span class="text-danger text-center">{{ error }}</span>
+                <button class="btn btn-success col-md-offset-4 " type="submit">SUBMIT</button>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
